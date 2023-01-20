@@ -16,8 +16,6 @@ const PORT = process.env.PORT || 3333
 
 db.getConnection((err, conn) => {
   console.log('db başarıyla bağlandı')
-  conn.query()
-  db.releaseConnection(conn)
 })
 
 app.post('/register', (req, res, next) => {
