@@ -1,7 +1,6 @@
 const router = require('express').Router()
 const db = require('../utils/db')
 
-
 router.get('/users', (req, res, next) => {
   let sql = `SELECT * FROM users`
   db.query(sql, (err, results, fields) => {
@@ -42,6 +41,18 @@ router.get('/words', (req, res, next) => {
     res.json({
       success: true,
       data: results,
+    })
+  })
+})
+
+router.get('/words/:id', (req, res, next) => {
+  const sql = `SELECT * FROM words WHERE id=${req.params.id}`
+
+  db.query(sql, (err, results) => {
+    if (err) return res.json({ err })
+    res.json({
+      success: true,
+      data: results[0],
     })
   })
 })
