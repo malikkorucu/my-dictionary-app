@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="vocab-card-list">
+    <% words.forEach(item => { %>
+    <div class="vocab-card">
+      <div class="card-header">
+        <div class="info"></div>
+        <div class="actions">
+          <a href="/word/delete/<%= item.id %>"><i class="fa-solid fa-trash"></i></a>
+          <a href="/word/<%= item.id %>"><i class="fa-regular fa-pen-to-square"></i></a>
+        </div>
+      </div>
+      <div class="content">
+        <div><b><%= item.word %></b></div>
+        <div><%= item.meaning %></div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
